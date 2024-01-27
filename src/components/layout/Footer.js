@@ -34,7 +34,7 @@ const Footer = ({ className, topOuterDivider, topDivider, ...props }) => {
           </div>
           <div className="footer-bottom space-between text-xxs invert-order-desktop">
             <div className="footer-copyright">
-              Made by <a href="https://nyxordinal.tech">Nyxordinal</a>. All right
+              Made by <a href="https://nyxordinal.dev">Nyxordinal</a>. All right
               reserved
             </div>
           </div>

@@ -111,7 +111,7 @@ const Header = ({
                     <li>
                       <Link
                         to={{
-                          pathname: 'https://notes.nyxordinal.tech/',
+                          pathname: 'https://notes.nyxordinal.dev/',
                         }}
                         target="_blank"
                       >
@@ -121,7 +121,7 @@ const Header = ({
                     <li>
                       <Link
                         to={{
-                          pathname: 'https://plutus.nyxordinal.tech/',
+                          pathname: 'https://plutus.nyxordinal.dev/',
                         }}
                         target="_blank"
                       >
