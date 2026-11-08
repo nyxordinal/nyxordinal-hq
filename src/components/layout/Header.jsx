@@ -1,7 +1,6 @@
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import React, { useEffect, useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
 import Logo from './partials/Logo';
 
 const propTypes = {
@@ -109,24 +108,14 @@ const Header = ({
                     )}
                   >
                     <li>
-                      <Link
-                        to={{
-                          pathname: 'https://notes.nyxordinal.dev/',
-                        }}
-                        target="_blank"
-                      >
+                      <a href="https://notes.nyxordinal.dev/" target="_blank" rel="noreferrer">
                         Notes
-                      </Link>
+                      </a>
                     </li>
                     <li>
-                      <Link
-                        to={{
-                          pathname: 'https://plutus.nyxordinal.dev/',
-                        }}
-                        target="_blank"
-                      >
+                      <a href="https://plutus.nyxordinal.dev/" target="_blank" rel="noreferrer">
                         Plutus
-                      </Link>
+                      </a>
                     </li>
                   </ul>
                 </div>
