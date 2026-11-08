@@ -1,14 +1,18 @@
+@use "../../core/abstracts/map-functions";
+@use "../base/colors";
+@use "../base/typography";
+
 // Footer (core/layout/_footer.scss)
 
 // Color
 $footer--color: (
-  block-title: get-color(light, 1),
-  block-title-inverse: get-color(dark, 1),
+  block-title: colors.get-color(light, 1),
+  block-title-inverse: colors.get-color(dark, 1),
 );
 
 // Background color
 $footer--bg: (
-  footer: get-color(dark, 1),
+  footer: colors.get-color(dark, 1),
 );
 
 // Font size
@@ -36,7 +40,7 @@ $footer-block-title-padding: 8px; // footer block title, bottom padding
 $footer-block-list-padding: 4px; // spacing beetwen block lists
 
 // Don't change line below!
-$color: map-push($color, $footer--color);
-$bg--color: map-push($bg--color, $footer--bg);
-$font--size: map-push($font--size, $footer--size);
-$font--weight: map-push($font--weight, $footer--weight);
+colors.$color: map-functions.map-push(colors.$color, $footer--color);
+colors.$bg--color: map-functions.map-push(colors.$bg--color, $footer--bg);
+typography.$font--size: map-functions.map-push(typography.$font--size, $footer--size);
+typography.$font--weight: map-functions.map-push(typography.$font--weight, $footer--weight);

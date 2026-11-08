@@ -1,17 +1,22 @@
+@use "../../settings/elements/buttons-and-forms";
+@use "../abstracts/functions";
+@use "../abstracts/include-media";
+@use "../abstracts/mixins";
+
 .button {
     display: inline-flex;
-	@include font-size(button);
-    @include font-weight(button);
-	padding: calc(($button-form--height - get-line-height(button) - ($button-form--border-width * 2)) / 2) ($button--padding-h - $button-form--border-width);
-	height: $button-form--height;
+	@include mixins.font-size(button);
+    @include mixins.font-weight(button);
+	padding: calc((buttons-and-forms.$button-form--height - functions.get-line-height(button) - (buttons-and-forms.$button-form--border-width * 2)) / 2) (buttons-and-forms.$button--padding-h - buttons-and-forms.$button-form--border-width);
+	height: buttons-and-forms.$button-form--height;
     text-decoration: none !important;
-	text-transform: $button--transform;
-	color: color(button-light);
-    background-color: color-bg(button-light);
-    border-width: $button-form--border-width;
-	border-style: $button-form--border-style;
-	border-color: color-border(button-light);
-    border-radius: $button--radius;
+	text-transform: buttons-and-forms.$button--transform;
+	color: functions.color(button-light);
+    background-color: functions.color-bg(button-light);
+    border-width: buttons-and-forms.$button-form--border-width;
+	border-style: buttons-and-forms.$button-form--border-style;
+	border-color: functions.color-border(button-light);
+    border-radius: buttons-and-forms.$button--radius;
     cursor: pointer;
     justify-content: center;
     text-align: center;
@@ -24,8 +29,8 @@
     }
 
 	&:hover {
-		background-color: color-bg(button-light-hover);
-		border-color: color-border(button-light-hover);
+		background-color: functions.color-bg(button-light-hover);
+		border-color: functions.color-border(button-light-hover);
 	}
 
 	&.is-loading {
@@ -37,13 +42,13 @@
 			content: '';
 			display: block;
 			position: absolute;
-			width: get-line-height(button);
-			height: get-line-height(button);
-			margin-left: calc(get-line-height(button) / -2);
-			margin-top: calc(get-line-height(button) / -2);
+			width: functions.get-line-height(button);
+			height: functions.get-line-height(button);
+			margin-left: calc(functions.get-line-height(button) / -2);
+			margin-top: calc(functions.get-line-height(button) / -2);
 			top: 50%;
 			left: 50%;
-			border: $button-loading--thickness solid color(button-light);
+			border: buttons-and-forms.$button-loading--thickness solid functions.color(button-light);
 			border-radius: 50%;
 			border-right-color: transparent !important;
 			border-top-color: transparent !important;
@@ -54,74 +59,74 @@
 
 	&[disabled] {
 		cursor: not-allowed;
-		color: color(button-disabled);
-		background-color: color-bg(button-disabled) !important;
-		border-color: color-border(button-disabled);
+		color: functions.color(button-disabled);
+		background-color: functions.color-bg(button-disabled) !important;
+		border-color: functions.color-border(button-disabled);
 
 		&.is-loading {
 
 			&::after {
-				border-color: color(button-disabled);
+				border-color: functions.color(button-disabled);
 			}
 		}
 	}
 }
 
 .button-sm {
-    padding: calc(($button-form-sm--height - get-line-height(button) - ($button-form--border-width * 2)) / 2) ($button-sm--padding-h - $button-form--border-width);
-	height: $button-form-sm--height;
+    padding: calc((buttons-and-forms.$button-form-sm--height - functions.get-line-height(button) - (buttons-and-forms.$button-form--border-width * 2)) / 2) (buttons-and-forms.$button-sm--padding-h - buttons-and-forms.$button-form--border-width);
+	height: buttons-and-forms.$button-form-sm--height;
 }
 
 .button-dark {
-	color: color(button-dark);
-    background-color: color-bg(button-dark);
-	border-color: color-border(button-dark);
+	color: functions.color(button-dark);
+    background-color: functions.color-bg(button-dark);
+	border-color: functions.color-border(button-dark);
 
     &:hover {
-        background-color: color-bg(button-dark-hover);
-		border-color: color-border(button-dark-hover);
+        background-color: functions.color-bg(button-dark-hover);
+		border-color: functions.color-border(button-dark-hover);
     }
 
 	&.is-loading {
 
 		&::after {
-			border-color: color(button-dark);
+			border-color: functions.color(button-dark);
 		}
 	}
 }
 
 .button-primary {
-	color: color(button-primary);
-    background-color: color-bg(button-primary);
-	border-color: color-border(button-primary);
+	color: functions.color(button-primary);
+    background-color: functions.color-bg(button-primary);
+	border-color: functions.color-border(button-primary);
 
     &:hover {
-        background-color: color-bg(button-primary-hover);
-		border-color: color-border(button-primary-hover);
+        background-color: functions.color-bg(button-primary-hover);
+		border-color: functions.color-border(button-primary-hover);
     }
 
 	&.is-loading {
 
 		&::after {
-			border-color: color(button-primary);
+			border-color: functions.color(button-primary);
 		}
 	}
 }
 
 .button-secondary {
-	color: color(button-secondary);
-    background-color: color-bg(button-secondary);
-	border-color: color-border(button-secondary);
+	color: functions.color(button-secondary);
+    background-color: functions.color-bg(button-secondary);
+	border-color: functions.color-border(button-secondary);
 
     &:hover {
-        background-color: color-bg(button-secondary-hover);
-		border-color: color-border(button-secondary-hover);
+        background-color: functions.color-bg(button-secondary-hover);
+		border-color: functions.color-border(button-secondary-hover);
     }
 
 	&.is-loading {
 
 		&::after {
-			border-color: color(button-secondary);
+			border-color: functions.color(button-secondary);
 		}
 	}
 }
@@ -135,28 +140,28 @@
 	display: flex;
 	flex-wrap: wrap;
 	align-items: center;
-	margin-right: calc($button-group-padding / -2);
-	margin-left: calc($button-group-padding / -2);
-	margin-top: calc($button-group-padding / -2);
+	margin-right: calc(buttons-and-forms.$button-group-padding / -2);
+	margin-left: calc(buttons-and-forms.$button-group-padding / -2);
+	margin-top: calc(buttons-and-forms.$button-group-padding / -2);
 
 	&:last-of-type {
-		margin-bottom: calc($button-group-padding / -2);
+		margin-bottom: calc(buttons-and-forms.$button-group-padding / -2);
 	}
 
 	&:not(:last-of-type) {
-		margin-bottom: calc($button-group-padding / 2);
+		margin-bottom: calc(buttons-and-forms.$button-group-padding / 2);
 	}
 
 	> [class*=button] {
-		margin: calc($button-group-padding / 2);
+		margin: calc(buttons-and-forms.$button-group-padding / 2);
 	}
 }
 
-@include media( '<=medium' ) {
+@include include-media.media( '<=medium' ) {
 
 	.button-wide-mobile {
 		width: 100%;
-		max-width: $button--max-size-mobile;
+		max-width: buttons-and-forms.$button--max-size-mobile;
 	}
 }
 

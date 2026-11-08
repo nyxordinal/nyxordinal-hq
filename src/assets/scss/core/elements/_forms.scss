@@ -1,3 +1,8 @@
+@use "../../settings/elements/buttons-and-forms";
+@use "../abstracts/functions";
+@use "../abstracts/include-media";
+@use "../abstracts/mixins";
+
 fieldset {
 	/* Reset fieldset */
     padding: 0;
@@ -8,13 +13,13 @@ fieldset {
 .form-label,
 .form-switch,
 .form-slider {
-    color: color(label);
-    @include font-weight(label);
+    color: functions.color(label);
+    @include mixins.font-weight(label);
 
 }
 
 .form-label {
-	@include font-size(label);
+	@include mixins.font-size(label);
 }
 
 .form-input,
@@ -23,50 +28,50 @@ fieldset {
 .form-radio input {
 	-moz-appearance: none;
 	-webkit-appearance: none;
-	background-color: color-bg(input);
-	border-width: $button-form--border-width;
-	border-style: $button-form--border-style;
-	border-color: color-border(input);
+	background-color: functions.color-bg(input);
+	border-width: buttons-and-forms.$button-form--border-width;
+	border-style: buttons-and-forms.$button-form--border-style;
+	border-color: functions.color-border(input);
 
 	&:hover {
-		border-color: color-border(input-hover);
+		border-color: functions.color-border(input-hover);
 	}
 
 	&:active,
 	&:focus {
 		outline: none;
-		border-color: color-border(input-focus);
-		background-color: color-bg(input-focus);
+		border-color: functions.color-border(input-focus);
+		background-color: functions.color-bg(input-focus);
 	}
 
 	&[disabled] {
 		cursor: not-allowed;
-		background-color: color-bg(input-disabled);
-		border-color: color-border(input-disabled);
+		background-color: functions.color-bg(input-disabled);
+		border-color: functions.color-border(input-disabled);
 	}
 
 	&.form-error {
-		border-color: get-color(alert, error);
+		border-color: functions.get-color(alert, error);
 	}
 
 	&.form-warning {
-		border-color: get-color(alert, warning);
+		border-color: functions.get-color(alert, warning);
 	}
 
 	&.form-success {
-		border-color: get-color(alert, success);
+		border-color: functions.get-color(alert, success);
 	}
 }
 
 .form-input,
 .form-select {
 	display: block;
-	@include font-size(input);
-	@include font-weight(input);
-	padding: calc(($button-form--height - get-line-height(input) - ($button-form--border-width * 2)) / 2) ($form--padding-h - $button-form--border-width);
-	height: $button-form--height;
-	border-radius: $form--radius;
-    color: color(input);
+	@include mixins.font-size(input);
+	@include mixins.font-weight(input);
+	padding: calc((buttons-and-forms.$button-form--height - functions.get-line-height(input) - (buttons-and-forms.$button-form--border-width * 2)) / 2) (buttons-and-forms.$form--padding-h - buttons-and-forms.$button-form--border-width);
+	height: buttons-and-forms.$button-form--height;
+	border-radius: buttons-and-forms.$form--radius;
+    color: functions.color(input);
 	box-shadow: none;
     max-width: 100%;
     width: 100%;
@@ -75,11 +80,11 @@ fieldset {
 .form-input {
 
     &::placeholder {
-        color: color(input-placeholder);
+        color: functions.color(input-placeholder);
     }
 
     &::-ms-input-placeholder {
-        color: color(input-placeholder);
+        color: functions.color(input-placeholder);
     }
 }
 
@@ -89,22 +94,22 @@ textarea.form-input {
 }
 
 .form-select {
-	padding-right: ($form--padding-h - $button-form--border-width) * 2 + 16;
-    background-image: inline-svg('<svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path d="M8 11.4L2.6 6 4 4.6l4 4 4-4L13.4 6 8 11.4z" fill="' + color-icon(select-arrow) + '" fill-rule="evenodd"/></svg>');
-    background-position: right ($form--padding-h - $button-form--border-width) center;
+	padding-right: (buttons-and-forms.$form--padding-h - buttons-and-forms.$button-form--border-width) * 2 + 16;
+    background-image: functions.inline-svg('<svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path d="M8 11.4L2.6 6 4 4.6l4 4 4-4L13.4 6 8 11.4z" fill="' + functions.color-icon(select-arrow) + '" fill-rule="evenodd"/></svg>');
+    background-position: right (buttons-and-forms.$form--padding-h - buttons-and-forms.$button-form--border-width) center;
     background-repeat: no-repeat;
     background-size: 16px 16px;
 }
 
 .form-select-sm {
-	padding-right: ($form-sm--padding-h - $button-form--border-width) * 2 + 16;
-	background-position: right ($form-sm--padding-h - $button-form--border-width) center;
+	padding-right: (buttons-and-forms.$form-sm--padding-h - buttons-and-forms.$button-form--border-width) * 2 + 16;
+	background-position: right (buttons-and-forms.$form-sm--padding-h - buttons-and-forms.$button-form--border-width) center;
 }
 
 .form-select-sm,
 .form-input-sm {
-    padding: calc(($button-form-sm--height - get-line-height(input) - ($button-form--border-width * 2)) / 2) ($form-sm--padding-h - $button-form--border-width);
-	height: $button-form-sm--height;
+    padding: calc((buttons-and-forms.$button-form-sm--height - functions.get-line-height(input) - (buttons-and-forms.$button-form--border-width * 2)) / 2) (buttons-and-forms.$form-sm--padding-h - buttons-and-forms.$button-form--border-width);
+	height: buttons-and-forms.$button-form-sm--height;
 }
 
 .has-icon-left,
@@ -122,18 +127,18 @@ textarea.form-input {
 .has-icon-left {
 
 	.form-input {
-		padding-left: ($form--padding-h - $button-form--border-width) * 2 + 16;
+		padding-left: (buttons-and-forms.$form--padding-h - buttons-and-forms.$button-form--border-width) * 2 + 16;
 
 		+ svg {
-			left: $form--padding-h - $button-form--border-width;
+			left: buttons-and-forms.$form--padding-h - buttons-and-forms.$button-form--border-width;
 		}
 	}
 
 	.form-input-sm {
-		padding-left: ($form-sm--padding-h - $button-form--border-width) * 2 + 16;
+		padding-left: (buttons-and-forms.$form-sm--padding-h - buttons-and-forms.$button-form--border-width) * 2 + 16;
 
 		+ svg {
-			left: $form-sm--padding-h - $button-form--border-width;
+			left: buttons-and-forms.$form-sm--padding-h - buttons-and-forms.$button-form--border-width;
 		}
 	}
 }
@@ -141,18 +146,18 @@ textarea.form-input {
 .has-icon-right {
 
 	.form-input {
-		padding-right: ($form--padding-h - $button-form--border-width) * 2 + 16;
+		padding-right: (buttons-and-forms.$form--padding-h - buttons-and-forms.$button-form--border-width) * 2 + 16;
 
 		+ svg {
-			right: $form--padding-h - $button-form--border-width;
+			right: buttons-and-forms.$form--padding-h - buttons-and-forms.$button-form--border-width;
 		}
 	}
 
 	.form-input-sm {
-		padding-right: ($form-sm--padding-h - $button-form--border-width) * 2 + 16;
+		padding-right: (buttons-and-forms.$form-sm--padding-h - buttons-and-forms.$button-form--border-width) * 2 + 16;
 
 		+ svg {
-			right: $form-sm--padding-h - $button-form--border-width;
+			right: buttons-and-forms.$form-sm--padding-h - buttons-and-forms.$button-form--border-width;
 		}
 	}
 }
@@ -167,13 +172,13 @@ textarea.form-input {
 .form-radio,
 .form-switch,
 .form-slider {
-	@include font-size(check-radio);
-    @include font-weight(check-radio);
+	@include mixins.font-size(check-radio);
+    @include mixins.font-weight(check-radio);
 }
 
 .form-checkbox,
 .form-radio {
-	color: color(check-radio);
+	color: functions.color(check-radio);
 }
 
 .form-checkbox,
@@ -184,14 +189,14 @@ textarea.form-input {
 	input {
 		position: absolute;
 		left: 0;
-		top: calc( ( get-line-height(check-radio) - 16px ) / 2 ) - 1; // -1 is for optical adjustement
+		top: calc( ( functions.get-line-height(check-radio) - 16px ) / 2 ) - 1; // -1 is for optical adjustement
 		width: 16px;
 		height: 16px;
 		cursor: pointer;
 
 		&:checked {
-			background-color: color-bg(check-radio-checked) !important;
-			border-color: color-bg(check-radio-checked) !important;
+			background-color: functions.color-bg(check-radio-checked) !important;
+			border-color: functions.color-bg(check-radio-checked) !important;
 			background-position: 50%;
 		}
 	}
@@ -240,7 +245,7 @@ textarea.form-input {
 		width: 60px;
 		height: 32px;
 		border-radius: 16px;
-		background: color-bg(switch);
+		background: functions.color-bg(switch);
 
 		&::before {
 			content: '';
@@ -251,7 +256,7 @@ textarea.form-input {
 			width: 28px;
 			height: 28px;
 			border-radius: 14px;
-			background: get-color(light, 1);
+			background: functions.get-color(light, 1);
 			transition: all .15s ease-out;
 		}
 	}
@@ -259,7 +264,7 @@ textarea.form-input {
 	input:checked {
 
 		+ .form-switch-icon {
-			background: color-bg(switch-checked);
+			background: functions.color-bg(switch-checked);
 
 			&::before {
 				left: 30px;
@@ -291,51 +296,51 @@ textarea.form-input {
     input[type=range] {
         -moz-appearance: none;
 	    -webkit-appearance: none;
-        background: color-bg(range-track);
+        background: functions.color-bg(range-track);
         border-radius: 3px;
         height: 6px;
         width: 100%;
-        margin-top: calc(($range-thumb-size - 6px) / 2);
-        margin-bottom: calc(($range-thumb-size - 6px) / 2);
+        margin-top: calc((buttons-and-forms.$range-thumb-size - 6px) / 2);
+        margin-bottom: calc((buttons-and-forms.$range-thumb-size - 6px) / 2);
         outline: none;
 
 		&::-webkit-slider-thumb {
             appearance: none;
             -webkit-appearance: none;
-            background-color: color-bg(range-thumb);
-            background-image: inline-svg('<svg width="12" height="8" xmlns="http://www.w3.org/2000/svg"><path d="M8 .5v7L12 4zM0 4l4 3.5v-7z" fill="' + color-icon(range) + '" fill-rule="nonzero"/></svg>');
+            background-color: functions.color-bg(range-thumb);
+            background-image: functions.inline-svg('<svg width="12" height="8" xmlns="http://www.w3.org/2000/svg"><path d="M8 .5v7L12 4zM0 4l4 3.5v-7z" fill="' + functions.color-icon(range) + '" fill-rule="nonzero"/></svg>');
             background-position: center;
             background-repeat: no-repeat;
             border: 0;
             border-radius: 50%;
             cursor: pointer;
-            height: $range-thumb-size;
-            width: $range-thumb-size;            
+            height: buttons-and-forms.$range-thumb-size;
+            width: buttons-and-forms.$range-thumb-size;            
         }
 
 		&::-moz-range-thumb {
-            background-color: color-bg(range-thumb);
-            background-image: inline-svg('<svg width="12" height="8" xmlns="http://www.w3.org/2000/svg"><path d="M8 .5v7L12 4zM0 4l4 3.5v-7z" fill="' + color-icon(range) + '" fill-rule="nonzero"/></svg>');
+            background-color: functions.color-bg(range-thumb);
+            background-image: functions.inline-svg('<svg width="12" height="8" xmlns="http://www.w3.org/2000/svg"><path d="M8 .5v7L12 4zM0 4l4 3.5v-7z" fill="' + functions.color-icon(range) + '" fill-rule="nonzero"/></svg>');
             background-position: center;
             background-repeat: no-repeat;
             border: 0;
             border: none;
             border-radius: 50%;
             cursor: pointer;
-            height: $range-thumb-size;
-            width: $range-thumb-size;
+            height: buttons-and-forms.$range-thumb-size;
+            width: buttons-and-forms.$range-thumb-size;
         }
         
 		&::-ms-thumb {
-            background-color: color-bg(range-thumb);
-            background-image: inline-svg('<svg width="12" height="8" xmlns="http://www.w3.org/2000/svg"><path d="M8 .5v7L12 4zM0 4l4 3.5v-7z" fill="' + color-icon(range) + '" fill-rule="nonzero"/></svg>');
+            background-color: functions.color-bg(range-thumb);
+            background-image: functions.inline-svg('<svg width="12" height="8" xmlns="http://www.w3.org/2000/svg"><path d="M8 .5v7L12 4zM0 4l4 3.5v-7z" fill="' + functions.color-icon(range) + '" fill-rule="nonzero"/></svg>');
             background-position: center;
             background-repeat: no-repeat;
             border: 0;
             border-radius: 50%;
             cursor: pointer;
-            height: $range-thumb-size;
-            width: $range-thumb-size;
+            height: buttons-and-forms.$range-thumb-size;
+            width: buttons-and-forms.$range-thumb-size;
         }
         
         &::-moz-focus-outer {
@@ -349,55 +354,55 @@ textarea.form-input {
     .form-label,
     .form-switch,
     .form-slider {
-		color: color(label-inverse);
+		color: functions.color(label-inverse);
 	}
 
 	.form-input,
 	.form-select,
 	.form-checkbox input,
 	.form-radio input {
-		background-color: color-bg(input-inverse);
-		border-color: color-border(input-inverse);
+		background-color: functions.color-bg(input-inverse);
+		border-color: functions.color-border(input-inverse);
 
 		&:hover {
-			border-color: color-border(input-hover-inverse);
+			border-color: functions.color-border(input-hover-inverse);
 		}
 
 		&:active,
 		&:focus {
-			border-color: color-border(input-focus-inverse);
-			background-color: color-bg(input-focus-inverse);
+			border-color: functions.color-border(input-focus-inverse);
+			background-color: functions.color-bg(input-focus-inverse);
 		}
 
 		&[disabled] {
-			background-color: color-bg(input-disabled-inverse);
-			border-color: color-border(input-disabled-inverse);
+			background-color: functions.color-bg(input-disabled-inverse);
+			border-color: functions.color-border(input-disabled-inverse);
 		}
 	}
 
 	.form-input,
 	.form-select {
-	    color: color(input-inverse);
+	    color: functions.color(input-inverse);
 	}
 
 	.form-input {
 
 	    &::placeholder {
-	        color: color(input-ph-inverse);
+	        color: functions.color(input-ph-inverse);
 	    }
 
 	    &::-ms-input-placeholder {
-	        color: color(input-ph-inverse);
+	        color: functions.color(input-ph-inverse);
 	    }
 	}
 
 	.form-select {
-	    background-image: inline-svg('<svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path d="M8 11.4L2.6 6 4 4.6l4 4 4-4L13.4 6 8 11.4z" fill="' + color-icon(select-arrow-inverse) + '" fill-rule="evenodd"/></svg>');
+	    background-image: functions.inline-svg('<svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path d="M8 11.4L2.6 6 4 4.6l4 4 4-4L13.4 6 8 11.4z" fill="' + functions.color-icon(select-arrow-inverse) + '" fill-rule="evenodd"/></svg>');
     }
     
     .form-checkbox,
     .form-radio {
-        color: color(check-radio-inverse);
+        color: functions.color(check-radio-inverse);
     }
 
 	.form-checkbox,
@@ -406,8 +411,8 @@ textarea.form-input {
 		input {
 
 			&:checked {
-				background-color: color-bg(check-checked-inverse) !important;
-				border-color: color-bg(check-checked-inverse) !important;
+				background-color: functions.color-bg(check-checked-inverse) !important;
+				border-color: functions.color-bg(check-checked-inverse) !important;
 			}
 		}
 	}
@@ -415,14 +420,14 @@ textarea.form-input {
 	.form-switch {
 
 		.form-switch-icon {
-			background: color-bg(switch-inverse);
+			background: functions.color-bg(switch-inverse);
 
 		}
 
 		input:checked {
 
 			+ .form-switch-icon {
-				background: color-bg(switch-checked-inverse);
+				background: functions.color-bg(switch-checked-inverse);
 			}
 		}
     }
@@ -430,21 +435,21 @@ textarea.form-input {
     .form-slider {
 
         input[type=range] {
-            background: color-bg(range-track-inverse);
+            background: functions.color-bg(range-track-inverse);
 
             &::-webkit-slider-thumb {
-                background-color: color-bg(range-thumb-inverse);
-                background-image: inline-svg('<svg width="12" height="8" xmlns="http://www.w3.org/2000/svg"><path d="M8 .5v7L12 4zM0 4l4 3.5v-7z" fill="' + color-icon(range-inverse) + '" fill-rule="nonzero"/></svg>');
+                background-color: functions.color-bg(range-thumb-inverse);
+                background-image: functions.inline-svg('<svg width="12" height="8" xmlns="http://www.w3.org/2000/svg"><path d="M8 .5v7L12 4zM0 4l4 3.5v-7z" fill="' + functions.color-icon(range-inverse) + '" fill-rule="nonzero"/></svg>');
             }
 
             &::-moz-range-thumb {
-                background-color: color-bg(range-thumb-inverse);
-                background-image: inline-svg('<svg width="12" height="8" xmlns="http://www.w3.org/2000/svg"><path d="M8 .5v7L12 4zM0 4l4 3.5v-7z" fill="' + color-icon(range-inverse) + '" fill-rule="nonzero"/></svg>');
+                background-color: functions.color-bg(range-thumb-inverse);
+                background-image: functions.inline-svg('<svg width="12" height="8" xmlns="http://www.w3.org/2000/svg"><path d="M8 .5v7L12 4zM0 4l4 3.5v-7z" fill="' + functions.color-icon(range-inverse) + '" fill-rule="nonzero"/></svg>');
             }
             
             &::-ms-thumb {
-                background-color: color-bg(range-thumb-inverse);
-                background-image: inline-svg('<svg width="12" height="8" xmlns="http://www.w3.org/2000/svg"><path d="M8 .5v7L12 4zM0 4l4 3.5v-7z" fill="' + color-icon(range-inverse) + '" fill-rule="nonzero"/></svg>');
+                background-color: functions.color-bg(range-thumb-inverse);
+                background-image: functions.inline-svg('<svg width="12" height="8" xmlns="http://www.w3.org/2000/svg"><path d="M8 .5v7L12 4zM0 4l4 3.5v-7z" fill="' + functions.color-icon(range-inverse) + '" fill-rule="nonzero"/></svg>');
             }           
         }
     }    
@@ -456,9 +461,9 @@ textarea.form-input {
 	.form-input {
 		flex-grow: 1;
 		flex-shrink: 1;
-		margin-right: $button-form--group-padding;
+		margin-right: buttons-and-forms.$button-form--group-padding;
 
-		@if ( $button-form--group-padding == null ) {
+		@if ( buttons-and-forms.$button-form--group-padding == null ) {
 			border-top-right-radius: 0;
 			border-bottom-right-radius: 0;
 			border-right-width: 0;
@@ -466,35 +471,35 @@ textarea.form-input {
 	}
 
 	.button {
-        padding-left: $button-w-form--padding-h;
-		padding-right: $button-w-form--padding-h;
+        padding-left: buttons-and-forms.$button-w-form--padding-h;
+		padding-right: buttons-and-forms.$button-w-form--padding-h;
 		flex-shrink: 0;
 
-		@if ( $button-form--group-padding == null ) {
+		@if ( buttons-and-forms.$button-form--group-padding == null ) {
 			border-top-left-radius: 0;
 			border-bottom-left-radius: 0;
 		}
 	}
 
 	.button-sm {
-		padding-left: $button-sm-w-form--padding-h;
-		padding-right: $button-sm-w-form--padding-h;
+		padding-left: buttons-and-forms.$button-sm-w-form--padding-h;
+		padding-right: buttons-and-forms.$button-sm-w-form--padding-h;
 	}
 }
 
 .form-hint {
-	@include font-size(hint);
-	margin-top: $form-hint--margin;
+	@include mixins.font-size(hint);
+	margin-top: buttons-and-forms.$form-hint--margin;
 }
 
-@include media( '<=medium' ) {
+@include include-media.media( '<=medium' ) {
 
 	.form-group-desktop {
 
 		.form-input {
-			margin-bottom: $button-form--group-padding;
+			margin-bottom: buttons-and-forms.$button-form--group-padding;
 
-			@if ( $button-form--group-padding == null ) {
+			@if ( buttons-and-forms.$button-form--group-padding == null ) {
 				border-bottom-left-radius: 0;
 				border-bottom-right-radius: 0;
 				border-bottom-width: 0;
@@ -504,7 +509,7 @@ textarea.form-input {
 		.button {
 			width: 100%;
 
-			@if ( $button-form--group-padding == null ) {
+			@if ( buttons-and-forms.$button-form--group-padding == null ) {
 				border-top-left-radius: 0;
 				border-top-right-radius: 0;
 			}
@@ -512,7 +517,7 @@ textarea.form-input {
 	}
 }
 
-@include media( '>medium' ) {
+@include include-media.media( '>medium' ) {
 
     .form-group-desktop {
         display: flex;
@@ -520,9 +525,9 @@ textarea.form-input {
 		.form-input {
 			flex-grow: 1;
 			flex-shrink: 1;
-			margin-right: $button-form--group-padding;
+			margin-right: buttons-and-forms.$button-form--group-padding;
 
-			@if ( $button-form--group-padding == null ) {
+			@if ( buttons-and-forms.$button-form--group-padding == null ) {
 				border-top-right-radius: 0;
 				border-bottom-right-radius: 0;
 				border-right-width: 0;
@@ -530,19 +535,19 @@ textarea.form-input {
 		}
 
         .button {
-			padding-left: $button-w-form--padding-h;
-			padding-right: $button-w-form--padding-h;
+			padding-left: buttons-and-forms.$button-w-form--padding-h;
+			padding-right: buttons-and-forms.$button-w-form--padding-h;
             flex-shrink: 0;
 
-			@if ( $button-form--group-padding == null ) {
+			@if ( buttons-and-forms.$button-form--group-padding == null ) {
 				border-top-left-radius: 0;
 				border-bottom-left-radius: 0;
 			}
 		}
 
 		.button-sm {
-			padding-left: $button-sm-w-form--padding-h;
-			padding-right: $button-sm-w-form--padding-h;
+			padding-left: buttons-and-forms.$button-sm-w-form--padding-h;
+			padding-right: buttons-and-forms.$button-sm-w-form--padding-h;
 		}
     }
 }

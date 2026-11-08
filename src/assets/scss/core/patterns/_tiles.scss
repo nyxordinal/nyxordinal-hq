@@ -1,38 +1,41 @@
+@use "../../settings/patterns/tiles";
+@use "../abstracts/include-media";
+
 .tiles-wrap {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-	margin-right: calc($tiles-items--padding__mobile / -2);
-	margin-left: calc($tiles-items--padding__mobile / -2);
-	margin-top: calc($tiles-items--padding__mobile / -2);
+	margin-right: calc(tiles.$tiles-items--padding__mobile / -2);
+	margin-left: calc(tiles.$tiles-items--padding__mobile / -2);
+	margin-top: calc(tiles.$tiles-items--padding__mobile / -2);
 
 	&:last-of-type {
-		margin-bottom: calc($tiles-items--padding__mobile / -2);
+		margin-bottom: calc(tiles.$tiles-items--padding__mobile / -2);
 	}
 
 	&:not(:last-of-type) {
-		margin-bottom: calc($tiles-items--padding__mobile / 2);
+		margin-bottom: calc(tiles.$tiles-items--padding__mobile / 2);
 	}
 
 	&.push-left {
 
 		&::after {
 			content: '';
-			flex-basis: $tiles-item--width;
-			max-width: $tiles-item--width;
+			flex-basis: tiles.$tiles-item--width;
+			max-width: tiles.$tiles-item--width;
 			box-sizing: content-box;
-			padding-left: calc($tiles-items--padding__mobile / 2);
-			padding-right: calc($tiles-items--padding__mobile / 2);
+			padding-left: calc(tiles.$tiles-items--padding__mobile / 2);
+			padding-right: calc(tiles.$tiles-items--padding__mobile / 2);
 			height: 0;
 		}
 	}
 }
 
 .tiles-item {
-	flex-basis: $tiles-item--width;
-	max-width: $tiles-item--width;
+	flex-basis: tiles.$tiles-item--width;
+	max-width: tiles.$tiles-item--width;
 	box-sizing: content-box;
-	padding: calc($tiles-items--padding__mobile / 2);
+	padding: calc(tiles.$tiles-items--padding__mobile / 2);
 
 	* {
 		box-sizing: border-box;
@@ -44,37 +47,37 @@
 	flex-wrap: wrap;
 	flex-direction: column;
 	height: 100%;
-	padding: $tiles-item--inner-padding-v $tiles-item--inner-padding-h;
+	padding: tiles.$tiles-item--inner-padding-v tiles.$tiles-item--inner-padding-h;
 }
 
-@if ( $tiles-items--padding__desktop != null ) {
+@if ( tiles.$tiles-items--padding__desktop != null ) {
 
-	@include media( '>medium' ) {
+	@include include-media.media( '>medium' ) {
 
 		.tiles-wrap {
-			margin-right: calc($tiles-items--padding__desktop / -2);
-			margin-left: calc($tiles-items--padding__desktop / -2);
-			margin-top: calc($tiles-items--padding__desktop / -2);
+			margin-right: calc(tiles.$tiles-items--padding__desktop / -2);
+			margin-left: calc(tiles.$tiles-items--padding__desktop / -2);
+			margin-top: calc(tiles.$tiles-items--padding__desktop / -2);
 
 			&:last-of-type {
-				margin-bottom: calc($tiles-items--padding__desktop / -2);
+				margin-bottom: calc(tiles.$tiles-items--padding__desktop / -2);
 			}
 
 			&:not(:last-of-type) {
-				margin-bottom: calc($tiles-items--padding__desktop / 2);
+				margin-bottom: calc(tiles.$tiles-items--padding__desktop / 2);
 			}
 
 			&.push-left {
 
 				&::after {
-					padding-left: calc($tiles-items--padding__desktop / 2);
-					padding-right: calc($tiles-items--padding__desktop / 2);
+					padding-left: calc(tiles.$tiles-items--padding__desktop / 2);
+					padding-right: calc(tiles.$tiles-items--padding__desktop / 2);
 				}
 			}
 		}
 
 		.tiles-item {
-			padding: calc($tiles-items--padding__desktop / 2);
+			padding: calc(tiles.$tiles-items--padding__desktop / 2);
 		}
 	}
 }

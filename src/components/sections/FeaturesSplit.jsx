@@ -3,6 +3,8 @@ import React from 'react';
 import { SectionSplitProps } from '../../utils/SectionProps';
 import Image from '../elements/Image';
 import SectionHeader from './partials/SectionHeader';
+import notesImage from '../../assets/images/notes.png';
+import plutusImage from '../../assets/images/plutus.png';
 
 const propTypes = {
   ...SectionSplitProps.types,
@@ -86,7 +88,7 @@ const FeaturesSplit = ({
                 data-reveal-container=".split-item"
               >
                 <Image
-                  src={require('./../../assets/images/notes.png')}
+                  src={notesImage}
                   alt="Nyxordinal Notes"
                   width={528}
                   height={396}
@@ -116,7 +118,7 @@ const FeaturesSplit = ({
                 data-reveal-container=".split-item"
               >
                 <Image
-                  src={require('./../../assets/images/plutus.png')}
+                  src={plutusImage}
                   alt="Features split 02"
                   width={528}
                   height={396}

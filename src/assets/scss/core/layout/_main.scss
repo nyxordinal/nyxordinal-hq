@@ -1,10 +1,13 @@
+@use "../../settings/base/widths-and-spacing";
+@use "../abstracts/functions";
+
 .is-boxed {
-    background: color-bg(body-outer);
+    background: functions.color-bg(body-outer);
 
 	.body-wrap {
-		max-width: $container--width-boxed;
+		max-width: widths-and-spacing.$container--width-boxed;
 	    margin: 0 auto;
-	    box-shadow: color-bg(body-shadow);
+	    box-shadow: functions.color-bg(body-shadow);
 
 		&::before {
 			content: '';
@@ -13,7 +16,7 @@
 			left: 0;
 			width: 100%;
 			height: 100%;
-			background: color-bg(body);
+			background: functions.color-bg(body);
 			z-index: -10;
 		}
 	}

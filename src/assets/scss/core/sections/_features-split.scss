@@ -1,26 +1,29 @@
+@use "../../settings/sections/features-split";
+@use "../abstracts/include-media";
+
 .features-split {
 
 	.section-inner {
-		padding-top: $features-split--padding-t__mobile;
-		padding-bottom: $features-split--padding-b__mobile;
+		padding-top: features-split.$features-split--padding-t__mobile;
+		padding-bottom: features-split.$features-split--padding-b__mobile;
 	}
 
 	.section-header {
-		padding-bottom: $features-split-header--padding__mobile;
+		padding-bottom: features-split.$features-split-header--padding__mobile;
 	}
 }
 
-@include media( '>medium' ) {
+@include include-media.media( '>medium' ) {
 
 	.features-split {
 
 		.section-inner {
-			padding-top: $features-split--padding-t__desktop;
-			padding-bottom: $features-split--padding-b__desktop;
+			padding-top: features-split.$features-split--padding-t__desktop;
+			padding-bottom: features-split.$features-split--padding-b__desktop;
 		}
 
 		.section-header {
-			padding-bottom: $features-split-header--padding__desktop;
+			padding-bottom: features-split.$features-split-header--padding__desktop;
 		}
 	}
 }

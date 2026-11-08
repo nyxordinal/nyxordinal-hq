@@ -1,3 +1,8 @@
+@use "../../settings/base/widths-and-spacing";
+@use "../../settings/elements/modal";
+@use "../abstracts/functions";
+@use "../abstracts/include-media";
+
 .modal,
 .modal::before {
 	bottom: 0;
@@ -19,7 +24,7 @@
 
 		.modal-inner {
 			padding: 0;
-			max-width: $modal-video--max-width;
+			max-width: modal.$modal-video--max-width;
 		}
 	}
 
@@ -31,7 +36,7 @@
 	&::before {
 		content: '';
 		position: absolute;
-		background-color: color-bg(modal-outer);
+		background-color: functions.color-bg(modal-outer);
 	}
 
 	&.is-active {
@@ -53,19 +58,19 @@
 }
 
 .modal-inner {
-	max-height: calc(100vh - #{$modal--outer-padding-v__mobile} * 2);
+	max-height: calc(100vh - #{modal.$modal--outer-padding-v__mobile} * 2);
 	overflow: auto;
 	position: relative;
-	width: calc(100%  - ( #{$container--padding__mobile} * 2 ));
-	min-width: $modal--min-width;
-	max-width: $modal--max-width;
-	margin-left: $container--padding__mobile;
-	margin-right: $container--padding__mobile;
-	background: color-bg(modal);
+	width: calc(100%  - ( #{widths-and-spacing.$container--padding__mobile} * 2 ));
+	min-width: modal.$modal--min-width;
+	max-width: modal.$modal--max-width;
+	margin-left: widths-and-spacing.$container--padding__mobile;
+	margin-right: widths-and-spacing.$container--padding__mobile;
+	background: functions.color-bg(modal);
 }
 
 .modal-content {
-	padding: $modal--inner-padding-v__mobile $modal--inner-padding-h__mobile;
+	padding: modal.$modal--inner-padding-v__mobile modal.$modal--inner-padding-h__mobile;
 }
 
 .modal-close {
@@ -75,10 +80,10 @@
 	padding: 0;
 	cursor: pointer;
 	position: absolute;
-	right: $modal-close-position;
-	top: $modal-close-position;
-	width: $modal-close-icon--size;
-	height: $modal-close-icon--size;
+	right: modal.$modal-close-position;
+	top: modal.$modal-close-position;
+	width: modal.$modal-close-icon--size;
+	height: modal.$modal-close-icon--size;
 
 	&::before,
 	&::after {
@@ -87,12 +92,12 @@
 		position: absolute;
 		top: 50%;
 		left: 50%;
-		margin-top: calc($modal-close-icon--thickness / -2);
-		margin-left: calc($modal-close-icon--size / -2);
-		width: $modal-close-icon--size;
-		height: $modal-close-icon--thickness;
-		background: color-icon(modal);
-		border-radius: $modal-close-icon--radius;
+		margin-top: calc(modal.$modal-close-icon--thickness / -2);
+		margin-left: calc(modal.$modal-close-icon--size / -2);
+		width: modal.$modal-close-icon--size;
+		height: modal.$modal-close-icon--thickness;
+		background: functions.color-icon(modal);
+		border-radius: modal.$modal-close-icon--radius;
 	}
 
 	&::before {
@@ -107,23 +112,23 @@
 
 		&::before,
 		&::after {
-			background: color-icon(modal-hover);
+			background: functions.color-icon(modal-hover);
 		}
 	}
 }
 
-@include media( '>medium' ) {
+@include include-media.media( '>medium' ) {
 
 	.modal-inner {
 		margin: 0 auto;
-		max-height: calc(100vh - #{$modal--outer-padding-v__desktop} * 2);
+		max-height: calc(100vh - #{modal.$modal--outer-padding-v__desktop} * 2);
 	}
 
 	.modal-content {
-		padding-top: $modal--inner-padding-v__desktop;
-		padding-bottom: $modal--inner-padding-v__desktop;
-		padding-left: $modal--inner-padding-h__desktop;
-		padding-right: $modal--inner-padding-h__desktop;
+		padding-top: modal.$modal--inner-padding-v__desktop;
+		padding-bottom: modal.$modal--inner-padding-v__desktop;
+		padding-left: modal.$modal--inner-padding-h__desktop;
+		padding-right: modal.$modal--inner-padding-h__desktop;
 	}
 }
 

@@ -1,7 +1,10 @@
+@use "../../settings/sections/hero";
+@use "../abstracts/include-media";
+
 .hero {
 	.section-inner {
-		padding-top: $hero--padding-t__mobile;
-		padding-bottom: $hero--padding-b__mobile;
+		padding-top: hero.$hero--padding-t__mobile;
+		padding-bottom: hero.$hero--padding-b__mobile;
 	}
 }
 
@@ -10,7 +13,7 @@
 	// Affects only hero full
 	> .hero-content + .hero-figure,
 	> .hero-figure + .hero-content {
-		margin-top: $hero--inner-padding-v_mobile;
+		margin-top: hero.$hero--inner-padding-v_mobile;
 	}
 
 	> .hero-figure {
@@ -24,7 +27,7 @@
 	}
 }
 
-@include media( '<=medium' ) {
+@include include-media.media( '<=medium' ) {
 
 	.hero {
 
@@ -33,7 +36,7 @@
 			.split-item {
 
 				.split-item-content {
-					margin-bottom: $hero--inner-padding-v_mobile;
+					margin-bottom: hero.$hero--inner-padding-v_mobile;
 				}
 			}
 
@@ -42,7 +45,7 @@
 				.split-item {
 
 					.split-item-image {
-						margin-bottom: $hero--inner-padding-v_mobile;
+						margin-bottom: hero.$hero--inner-padding-v_mobile;
 					}
 				}
 			}
@@ -50,13 +53,13 @@
 	}
 }
 
-@include media( '>medium' ) {
+@include include-media.media( '>medium' ) {
 
 	.hero {
 
 		.section-inner {
-			padding-top: $hero--padding-t__desktop;
-			padding-bottom: $hero--padding-b__desktop;
+			padding-top: hero.$hero--padding-t__desktop;
+			padding-bottom: hero.$hero--padding-b__desktop;
 		}
 	}
 
@@ -65,7 +68,7 @@
 		// Affects only hero full
 		> .hero-content + .hero-figure,
 		> .hero-figure + .hero-content {
-			margin-top: $hero--inner-padding-v_desktop;
+			margin-top: hero.$hero--inner-padding-v_desktop;
 		}
 	}
 }

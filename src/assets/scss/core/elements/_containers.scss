@@ -1,27 +1,30 @@
+@use "../../settings/base/widths-and-spacing";
+@use "../abstracts/include-media";
+
 .container,
 .container-sm,
 .container-xs {
 	width: 100%;
 	margin: 0 auto;
-	padding-left: $container--padding__mobile;
-	padding-right: $container--padding__mobile;
+	padding-left: widths-and-spacing.$container--padding__mobile;
+	padding-right: widths-and-spacing.$container--padding__mobile;
 
-	@include media( '>small' ) {
-		padding-left: $container--padding__desktop;
-		padding-right: $container--padding__desktop;
+	@include include-media.media( '>small' ) {
+		padding-left: widths-and-spacing.$container--padding__desktop;
+		padding-right: widths-and-spacing.$container--padding__desktop;
 	}
 }
 
 .container {
-	max-width: $container--width + ( $container--padding__desktop * 2 );
+	max-width: widths-and-spacing.$container--width + ( widths-and-spacing.$container--padding__desktop * 2 );
 }
 
 .container-sm {
-	max-width: $container--width-sm + ( $container--padding__desktop * 2 );
+	max-width: widths-and-spacing.$container--width-sm + ( widths-and-spacing.$container--padding__desktop * 2 );
 }
 
 .container-xs {
-	max-width: $container--width-xs + ( $container--padding__desktop * 2 );
+	max-width: widths-and-spacing.$container--width-xs + ( widths-and-spacing.$container--padding__desktop * 2 );
 }
 
 [class*=container] {
@@ -32,10 +35,10 @@
 	}
 
     .container-sm {
-		max-width: $container--width-sm;
+		max-width: widths-and-spacing.$container--width-sm;
     }
 
 	.container-xs {
-		max-width: $container--width-xs;
+		max-width: widths-and-spacing.$container--width-xs;
 	}
 }

@@ -1,9 +1,12 @@
+@use "../../core/abstracts/map-functions";
+@use "../base/colors";
+
 // Modal (core/elements/_modal.scss)
 
 // Background color
 $modal--bg: (
-	modal: get-color(dark, 2),
-	modal-outer: rgba(get-color(dark, 1), .88)
+	modal: colors.get-color(dark, 2),
+	modal-outer: rgba(colors.get-color(dark, 1), .88)
 );
 
 // More modal settings
@@ -22,4 +25,4 @@ $modal-close-icon--radius: 			null;		// modal close icon, lines radius cap
 $modal-close-position:				16px;		// icon distance from the top right of the modal
 
 // Don't change line below!
-$bg--color: map-push($bg--color, $modal--bg);
+colors.$bg--color: map-functions.map-push(colors.$bg--color, $modal--bg);

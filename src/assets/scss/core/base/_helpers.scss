@@ -1,3 +1,8 @@
+@use "../../settings/base/misc";
+@use "../abstracts/functions";
+@use "../abstracts/include-media";
+@use "../abstracts/mixins";
+
 // Hide elements, for screen readers only
 .screen-reader {
 	position: absolute;
@@ -52,49 +57,49 @@
 
 // Text color
 .text-color-high {
-	color: color(high-contrast);
+	color: functions.color(high-contrast);
 }
 
 .text-color-mid {
-	color: color(mid-contrast);
+	color: functions.color(mid-contrast);
 }
 
 .text-color-low {
-	color: color(low-contrast);
+	color: functions.color(low-contrast);
 }
 
 .text-color-primary {
-	color: color(primary);
+	color: functions.color(primary);
 }
 
 .text-color-secondary {
-	color: color(secondary);
+	color: functions.color(secondary);
 }
 
 .text-color-error {
-	color: color(error);
+	color: functions.color(error);
 }
 
 .text-color-warning {
-	color: color(warning);
+	color: functions.color(warning);
 }
 
 .text-color-success {
-	color: color(success);
+	color: functions.color(success);
 }
 
 .invert-color {
 
 	.text-color-high {
-		color: color(high-contrast-inverse);
+		color: functions.color(high-contrast-inverse);
 	}
 
 	.text-color-mid {
-		color: color(mid-contrast-inverse);
+		color: functions.color(mid-contrast-inverse);
 	}
 
 	.text-color-low {
-		color: color(low-contrast-inverse);
+		color: functions.color(low-contrast-inverse);
 	}
 }
 
@@ -112,43 +117,43 @@
 	position: relative;
 	left: 50%;
 	transform: translateX(-50%);
-	width: calc(100% + #{$image-larger--extra-width * 2});
+	width: calc(100% + #{misc.$image-larger--extra-width * 2});
 	max-width: 100vw;
 }
 
 // Helper class for coloured bg
 .has-bg-color {
 	position: relative;
-	background-color: color-bg(bg-color);
+	background-color: functions.color-bg(bg-color);
 	z-index: 0;
 }
 
 // Helper class for box shadow
 .has-shadow {
-	box-shadow: color-bg(shadow);
+	box-shadow: functions.color-bg(shadow);
 }
 
 img.has-shadow {
-	border-radius: $img-radius;
+	border-radius: misc.$img-radius;
 }
 
 // Dividers
 .has-top-divider {
-    @include divider(before);
+    @include mixins.divider(before);
 }
 
 .has-bottom-divider {
-    @include divider(after);
+    @include mixins.divider(after);
 }
 
 .invert-color {
 
 	.has-top-divider {
-	    @include divider(before, inverse);
+	    @include mixins.divider(before, inverse);
 	}
 
 	.has-bottom-divider {
-	    @include divider(after, inverse);
+	    @include mixins.divider(after, inverse);
 	}
 }
 
@@ -502,7 +507,7 @@ img.has-shadow {
 	padding-top: 64px;
 }
 
-@include media( '<=medium' ) {
+@include include-media.media( '<=medium' ) {
 
 	.ta-l-mobile {
 		text-align: left;
@@ -565,7 +570,7 @@ img.has-shadow {
 	}	
 }
 
-@include media( '>medium' ) {
+@include include-media.media( '>medium' ) {
 
 	.ta-l-desktop {
 		text-align: left;

@@ -1,34 +1,38 @@
+@use "../../core/abstracts/map-functions";
+@use "colors";
+@use "typography";
+
 // Links
 
 // Color
 $link--color: (
-	link: 								get-color(light, 1),
+	link: 								colors.get-color(light, 1),
 	link-hover: 						null,
-	header-link: 						get-color(light, 2),
-	header-link-hover: 					get-color(light, 1),
-	header-link-mobile: 				get-color(light, 1),
+	header-link: 						colors.get-color(light, 2),
+	header-link-hover: 					colors.get-color(light, 1),
+	header-link-mobile: 				colors.get-color(light, 1),
 	header-link-mobile-hover: 			null,
-	footer-link: 						get-color(light, 2),
-	footer-link-hover: 					get-color(light, 1),
-	footer-block-link: 					get-color(light, 2),
-	footer-block-link-hover: 			get-color(light, 1),
-	button-link: 						get-color(light, 2),
-	button-link-hover: 					get-color(light, 1),
+	footer-link: 						colors.get-color(light, 2),
+	footer-link-hover: 					colors.get-color(light, 1),
+	footer-block-link: 					colors.get-color(light, 2),
+	footer-block-link-hover: 			colors.get-color(light, 1),
+	button-link: 						colors.get-color(light, 2),
+	button-link-hover: 					colors.get-color(light, 1),
 	func-link: 							null,
 	func-link-hover: 					null,	
 	// ↓ Inverted colors
-	link-inverse: 						get-color(light, 3),
+	link-inverse: 						colors.get-color(light, 3),
 	link-hover-inverse: 				null,
-	header-link-inverse: 				get-color(dark, 3),
-	header-link-hover-inverse:			get-color(primary, 1),
+	header-link-inverse: 				colors.get-color(dark, 3),
+	header-link-hover-inverse:			colors.get-color(primary, 1),
 	footer-link-inverse: 				null,
 	footer-link-hover-inverse: 			null,
 	footer-block-link-inverse: 			null,
 	footer-block-link-hover-inverse:	null,
 	button-link-inverse: 				null,
-	button-link-hover-inverse:			get-color(primary, 1),
+	button-link-hover-inverse:			colors.get-color(primary, 1),
 	func-link-inverse: 					null,
-	func-link-hover-inverse:			get-color(primary, 1)	
+	func-link-hover-inverse:			colors.get-color(primary, 1)	
 );
 
 // Font-weight
@@ -62,5 +66,5 @@ $link-button--transform: 		null;
 $link-func--transform: 			null;
 
 // Don't change lines below!
-$color:			map-push($color, $link--color);
-$font--weight: 	map-push($font--weight, $link--weight);
+colors.$color:			map-functions.map-push(colors.$color, $link--color);
+typography.$font--weight: 	map-functions.map-push(typography.$font--weight, $link--weight);

@@ -5,107 +5,145 @@
 /*--------------------------------------------------------------
 # Variables, functions and mixins
 --------------------------------------------------------------*/
-@import 'core/abstracts/functions', 'settings/settings', 'core/abstracts/mixins',
-  'core/abstracts/include-media';
+@use 'core/abstracts/functions';
+@use 'settings/settings';
+@use 'core/abstracts/mixins';
+@use 'core/abstracts/include-media';
 
 /*--------------------------------------------------------------
 # Normalize
 	* normalize.css v7.0.0 | MIT License
 	* github.com/necolas/normalize.css
 --------------------------------------------------------------*/
-@import 'core/normalize';
+@use 'core/normalize';
 
 /*--------------------------------------------------------------
 # Fonts
 --------------------------------------------------------------*/
-@import 'core/base/fonts';
+@use 'core/base/fonts';
 
 /*--------------------------------------------------------------
 # Scroll reveal
 --------------------------------------------------------------*/
-@import 'core/base/scroll-reveal';
+@use 'core/base/scroll-reveal';
 
 /*--------------------------------------------------------------
 # Base
 --------------------------------------------------------------*/
-@import 'core/base/base';
+@use 'core/base/base';
 
 /*--------------------------------------------------------------
 # Typography
 --------------------------------------------------------------*/
-@import 'core/base/typography';
+@use 'core/base/typography';
 
 /*--------------------------------------------------------------
 # Containers
 --------------------------------------------------------------*/
-@import 'core/elements/containers';
+@use 'core/elements/containers';
 
 /*--------------------------------------------------------------
 # Buttons
 --------------------------------------------------------------*/
-@import 'core/elements/buttons';
+@use 'core/elements/buttons';
 
 /*--------------------------------------------------------------
 # Forms
 --------------------------------------------------------------*/
-@import 'core/elements/forms';
+@use 'core/elements/forms';
 
 /*--------------------------------------------------------------
 # Hamburger
 --------------------------------------------------------------*/
-@import 'core/elements/hamburger';
+@use 'core/elements/hamburger';
 
 /*--------------------------------------------------------------
 # Modal
 --------------------------------------------------------------*/
-@import 'core/elements/modal';
+@use 'core/elements/modal';
 
 /*--------------------------------------------------------------
 # Split pattern
 --------------------------------------------------------------*/
-@import 'core/patterns/split';
+@use 'core/patterns/split';
 
 /*--------------------------------------------------------------
 # Tiles pattern
 --------------------------------------------------------------*/
-@import 'core/patterns/tiles';
+@use 'core/patterns/tiles';
 
 /*--------------------------------------------------------------
 # Header
 --------------------------------------------------------------*/
-@import 'core/layout/header';
+@use 'core/layout/header';
 
 /*--------------------------------------------------------------
 # Site content
 --------------------------------------------------------------*/
-@import 'core/layout/main';
+@use 'core/layout/main';
 
 /*--------------------------------------------------------------
 # Footer
 --------------------------------------------------------------*/
-@import 'core/layout/footer';
+@use 'core/layout/footer';
 
 /*--------------------------------------------------------------
 # Section
 --------------------------------------------------------------*/
-@import 'core/sections/section';
+@use 'core/sections/section';
 
 /*--------------------------------------------------------------
 # Hero
 --------------------------------------------------------------*/
-@import 'core/sections/hero';
+@use 'core/sections/hero';
 
 /*--------------------------------------------------------------
 # Features split
 --------------------------------------------------------------*/
-@import 'core/sections/features-split';
+@use 'core/sections/features-split';
 
 /*--------------------------------------------------------------
 # Theme
 --------------------------------------------------------------*/
-@import 'theme/theme';
+@use 'theme/theme';
 
 /*--------------------------------------------------------------
 # Helpers
 --------------------------------------------------------------*/
-@import 'core/base/helpers';
+@use 'core/base/helpers';
+
+.plutus-scrapper-page {
+  min-height: 70vh;
+
+  .section-inner {
+    max-width: 760px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  h2 {
+    margin-top: 32px;
+    margin-bottom: 12px;
+  }
+
+  p {
+    line-height: 1.75;
+  }
+
+  .plutus-scrapper-lead {
+    font-size: 1.25rem;
+    line-height: 1.55;
+  }
+
+  .plutus-scrapper-muted {
+    opacity: 0.7;
+    font-size: 0.875rem;
+  }
+
+  .plutus-scrapper-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 24px;
+    margin-top: 32px;
+  }
+}

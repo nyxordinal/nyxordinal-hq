@@ -1,3 +1,5 @@
-@if ( $font--provider == 'Google Fonts' ) {
-    @import url('https://fonts.googleapis.com/css?family=#{$font--import}&display=swap');
+@use "../../settings/base/typography";
+
+@if ( typography.$font--provider == 'Google Fonts' ) {
+    @import url('https://fonts.googleapis.com/css?family=#{typography.$font--import}&display=swap');
 }

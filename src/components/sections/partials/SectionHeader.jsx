@@ -21,7 +21,7 @@ const SectionHeader = ({
   className,
   data,
   children,
-  tag,
+  tag = 'h2',
   id,
   ...props
 }) => {

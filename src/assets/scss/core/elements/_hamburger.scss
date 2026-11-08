@@ -1,3 +1,6 @@
+@use "../../settings/layout/header";
+@use "../abstracts/functions";
+
 .header-nav-toggle {
 	background: transparent;
 	border: 0;
@@ -14,27 +17,27 @@
 
 .hamburger {
 	position: relative;
-	width: $header-hamburger--size;
-	height: $header-hamburger--size;
+	width: header.$header-hamburger--size;
+	height: header.$header-hamburger--size;
 }
 
 .hamburger-inner,
 .hamburger-inner::before,
 .hamburger-inner::after {
-	width: $header-hamburger--size;
-	height: $header-hamburger--thickness;
+	width: header.$header-hamburger--size;
+	height: header.$header-hamburger--thickness;
 	position: absolute;
-	background: color-icon(hamburger);
-	border-radius: $header-hamburger--radius;
+	background: functions.color-icon(hamburger);
+	border-radius: header.$header-hamburger--radius;
 
 	.invert-color & {
-		background: color-icon(hamburger-inverse);
+		background: functions.color-icon(hamburger-inverse);
 	}
 }
 
 .hamburger-inner {
 	top: 50%;
-	margin-top: calc($header-hamburger--thickness / -2);
+	margin-top: calc(header.$header-hamburger--thickness / -2);
 	transition-duration: 0.22s;
 	transition-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
 
@@ -45,12 +48,12 @@
 	}
 
 	&::before {
-		top: -$header-hamburger--distance;
+		top: -(header.$header-hamburger--distance);
 		transition: top 0.1s 0.25s ease-in, opacity 0.1s ease-in;
 	}
 
 	&::after {
-		bottom: -$header-hamburger--distance;
+		bottom: -(header.$header-hamburger--distance);
 		transition: bottom 0.1s 0.25s ease-in, transform 0.22s cubic-bezier(0.55, 0.055, 0.675, 0.19), width 0.1s 0.25s ease-in;
 	}
 
@@ -66,7 +69,7 @@
 		}
 
 		&::after {
-			width: $header-hamburger--size;
+			width: header.$header-hamburger--size;
 			bottom: 0;
 			transform: rotate(-90deg);
 			transition: bottom 0.1s ease-out, transform 0.22s 0.12s cubic-bezier(0.215, 0.61, 0.355, 1), width 0.1s ease-out;

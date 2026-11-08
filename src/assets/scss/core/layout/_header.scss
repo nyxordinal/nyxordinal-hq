@@ -1,19 +1,25 @@
+@use "../../settings/base/links";
+@use "../../settings/layout/header";
+@use "../abstracts/functions";
+@use "../abstracts/include-media";
+@use "../abstracts/mixins";
+
 .site-header {
 	position: absolute !important;
 	top: 0;
 	width: 100%;
 	z-index: 10 !important;
-	background: color-bg(header);
+	background: functions.color-bg(header);
 
 	+ .site-content {
 
 		.section:first-of-type {
-			padding-top: $header-height__mobile;
+			padding-top: header.$header-height__mobile;
 		}
 	}
 
 	.brand {
-		margin-right: $header-nav--padding-h;
+		margin-right: header.$header-nav--padding-h;
 	}	
 }
 
@@ -21,7 +27,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-	height: $header-height__mobile;
+	height: header.$header-height__mobile;
 }
 
 .header-nav {
@@ -47,24 +53,24 @@
     li {
 
 		+ .header-button {
-			margin-left: $header-nav--padding-h;
+			margin-left: header.$header-nav--padding-h;
 		}
     }
 
     a:not(.button) {
 		display: block;
-        @include anchor-aspect(header);
-		@include font-weight(header-link);
-		text-transform: $link-header--transform;
-        padding: 0 $header-nav--padding-h;
+        @include mixins.anchor-aspect(header);
+		@include mixins.font-weight(header-link);
+		text-transform: links.$link-header--transform;
+        padding: 0 header.$header-nav--padding-h;
 
 		.invert-color & {
-			@include anchor-aspect(header, inverse);
+			@include mixins.anchor-aspect(header, inverse);
 		}
     }
 
 	a.button {
-		margin-left: $header-nav--padding-h;
+		margin-left: header.$header-nav--padding-h;
 	}
 }
 
@@ -85,7 +91,7 @@
 	display: none;
 }
 
-@include media( '<=medium' ) {
+@include include-media.media( '<=medium' ) {
 
 	.header-nav-toggle {
 		display: block;
@@ -98,7 +104,7 @@
 			right: 0;
 			top: 100%;
 			z-index: 9999;
-			background: color-bg(menu-mobile);
+			background: functions.color-bg(menu-mobile);
 			max-height: 0;
 	        opacity: 0;
 	        overflow: hidden;
@@ -110,7 +116,7 @@
 
 			.header-nav-inner {
 				flex-direction: column;
-				padding: $header-nav--padding-v__mobile;
+				padding: header.$header-nav--padding-v__mobile;
 			}
 
 			ul {
@@ -119,34 +125,34 @@
 
 			    a:not(.button) {
 					display: inline-flex;
-			        @include anchor-aspect(header-mobile);
-					padding-top: calc($header-nav--padding-v__mobile / 2);
-					padding-bottom: calc($header-nav--padding-v__mobile / 2);
+			        @include mixins.anchor-aspect(header-mobile);
+					padding-top: calc(header.$header-nav--padding-v__mobile / 2);
+					padding-bottom: calc(header.$header-nav--padding-v__mobile / 2);
 			    }
 			}
 
 			a.button {
 				margin-left: 0;
-				margin-top: calc($header-nav--padding-v__mobile / 2);
-				margin-bottom: calc($header-nav--padding-v__mobile / 2);
+				margin-top: calc(header.$header-nav--padding-v__mobile / 2);
+				margin-bottom: calc(header.$header-nav--padding-v__mobile / 2);
 			}
 		}
 	}
 }
 
-@include media( '>medium' ) {
+@include include-media.media( '>medium' ) {
 
 	.site-header {
 
 		+ .site-content {
 
 			.section:first-of-type {
-				padding-top: $header-height__desktop;
+				padding-top: header.$header-height__desktop;
 			}
 		}
 	}
 
 	.site-header-inner {
-		height: $header-height__desktop;
+		height: header.$header-height__desktop;
 	}
 }
